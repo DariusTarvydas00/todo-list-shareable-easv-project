@@ -6,7 +6,7 @@ COPY ./vue-app/package*.json ./
 
 RUN npm install
 
-COPY . .
+COPY todo-list-shareable-frontend .
 
 EXPOSE 3000
 
