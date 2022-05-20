@@ -1,18 +1,15 @@
-FROM node:18-alpine as development
-WORKDIR /usr/src/app
+FROM node:18-alpine
+
+WORKDIR /app/vue
+
 COPY package*.json ./
-RUN npm install --only=development
-COPY todo-list-shareable-frontend .
-RUN npm run build
-
-WORKDIR /app/nestjs-backend
-
-COPY ./vue-app/package*.json ./
 
 RUN npm install
 
-COPY todo-list-shareable-frontend .
+COPY . .
 
-EXPOSE 1234
+RUN npm run build
+
+EXPOSE 8081
 
 CMD ["npm", "run", "serve"]
