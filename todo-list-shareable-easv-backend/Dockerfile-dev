@@ -2,8 +2,6 @@ FROM node:18-alpine As builder
 
 ENV NODE_ENV build
 
-USER node
-
 WORKDIR /usr/src/app
 
 COPY package*.json ./
